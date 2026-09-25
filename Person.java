@@ -26,4 +26,12 @@ public abstract class Person {
         int alder = iDag.getYear() - this.fodselsdato.getYear();
         return alder;
     }
+
+    public String hentNavn() {
+        return this.navn;
+    }
+
+    public String hentKjonn() {
+        return this.kjonn;
+    }
 }
