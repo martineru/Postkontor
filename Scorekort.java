@@ -28,20 +28,6 @@ class Scorekort {
         }
     }
 
-    public String bestemKlasse() {
-        // Antar alle deltar i klassen de strengt tatt tilhører
-        String klasse;
-        klasse = skytter.hentKjonn() + "r";
-        if (skytter.alderklasse() >= 16) {
-            klasse += " senior";
-        } else if (skytter.alderklasse() >= 13) {
-            klasse += " junior";
-        } else {
-            klasse += " minijunior";
-        }
-        return klasse;
-    }
-
     public HashMap<String, Integer> hentScore() {
         return score;
     }
@@ -70,7 +56,7 @@ class Scorekort {
             pw.println("**Dato:** " + konkurranse.hentDato() + "\n");
             pw.println("**Sted:** " + konkurranse.sted + "\n");
             pw.println("**Skytter:** " + skytternavn + "\n");
-            pw.println("**Klasse:** " + bestemKlasse() + "\n");
+            pw.println("**Klasse:** " + skytter.klasse() + "\n");
             pw.println("---");
             pw.println("|Gren|Poengsum|");
             pw.println("|----------|----------|");
