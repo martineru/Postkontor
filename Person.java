@@ -1,22 +1,29 @@
-import java.util.Date;
+import java.time.LocalDate;
 
 public abstract class Person {
     String navn;
-    Date fodselsdato;
+    LocalDate fodselsdato;
     String adresse;
+    String kjonn;
 
-    public Person(String navn, Date fodselsdato, String adresse) {
+    public Person(String navn, LocalDate fodselsdato, String adresse, String kjonn) {
         this.navn = navn;
         this.adresse = adresse;
         this.fodselsdato = fodselsdato;
+        this.kjonn = kjonn;
     }
 
     public void byttAdresse(String adresseNy) {
         this.adresse = adresseNy;
     }
 
-    public int alder() {
-        // Bruker dagens dato til å regne ut alder
-        return 0;
+    /**
+     * @return Hvor gammel personen blir i år, uavhengig av når på året personen er
+     *         født.
+     */
+    public int alderklasse() {
+        LocalDate iDag = LocalDate.now();
+        int alder = iDag.getYear() - this.fodselsdato.getYear();
+        return alder;
     }
 }

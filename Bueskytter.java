@@ -1,9 +1,17 @@
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.HashMap;
 
 class Bueskytter extends Person implements Konkurranseskytter {
-    public Bueskytter(String navn, Date fodselsdato, String adresse, int skytternummer) {
-        super(navn, fodselsdato, adresse);
+    static int skytternummerTeller = 1000;
+    int skytternummer;
+
+    {
+        ++skytternummerTeller;
+    }
+
+    public Bueskytter(String navn, LocalDate fodselsdato, String adresse, String kjonn) {
+        super(navn, fodselsdato, adresse, kjonn);
+        this.skytternummer = skytternummerTeller;
     }
 
     @Override
@@ -16,6 +24,10 @@ class Bueskytter extends Person implements Konkurranseskytter {
     public String hentResultater() {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'hentResultater'");
+    }
+
+    public int hentSkytternummer() {
+        return this.skytternummer;
     }
 
 }
