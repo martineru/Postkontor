@@ -18,7 +18,7 @@ class Bueskytter extends Person implements Konkurranseskytter {
 
     @Override
     public void registrerResultater(HashMap<String, Integer> resultat) {
-        resultater.putAll(resultat);
+        resultater = resultat;
     }
 
     @Override
